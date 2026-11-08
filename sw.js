@@ -1,5 +1,5 @@
 // Bump VERSION on every release so phones pick up the new files.
-const VERSION = 'dondon-postcard-v60-1';
+const VERSION = 'dondon-postcard-v61-1';
 const FILES = ['./', './index.html', './manifest.webmanifest', './icon-180.png', './icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', (e) => {

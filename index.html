@@ -208,7 +208,7 @@
   <div class="hint" id="hint"></div>
 </div>
 
-<footer>すすきの Don Don.焼肉 ・ @susukino_dondon<br><span style="opacity:0.5;">PWA v60-1</span></footer>
+<footer>すすきの Don Don.焼肉 ・ @susukino_dondon<br><span style="opacity:0.5;">PWA v61-1</span></footer>
 
 <div class="overlay" id="saveOverlay" hidden>
   <img id="saveImg" alt="postcard">
@@ -700,7 +700,7 @@ function drawCollagePlan(ctx) {
     });
   }
 
-  drawLogoBadge(ctx, logoImg, 111, 111, 198);
+  drawLogoBadge(ctx, logoImg, W - 111, 111, 198);
 
   // QR codes — bottom-right corner, side by side.
   const qrSize = 150;
@@ -820,7 +820,6 @@ function draw() {
     drawScene(ctx, leftW, H);
   }
 
-  drawLogoBadge(ctx, logoImg, 111, 111, 198);
 
   // right message panel
   const rx = leftW;
@@ -830,6 +829,9 @@ function draw() {
   ctx.strokeStyle = '#cfc2a3'; ctx.lineWidth = 3; ctx.setLineDash([10, 8]);
   ctx.beginPath(); ctx.moveTo(rx + 1.5, 0); ctx.lineTo(rx + 1.5, H); ctx.stroke();
   ctx.setLineDash([]);
+
+  // DonDon. logo badge: top-right corner of the card (drawn after the panel so it sits on top).
+  drawLogoBadge(ctx, logoImg, W - 111, 111, 198);
 
   // QR codes — back to the original side-by-side row pinned to the
   // bottom of the panel.
@@ -849,7 +851,7 @@ function draw() {
     ctx.fillText(label, x + qrSize / 2, qrY + qrSize + qrLabelGap);
     ctx.restore();
   }
-  const padX = photos.length === 2 ? Math.round((rw - (296 * 2 + 19)) / 2) : 62, padTop = 140;
+  const padX = photos.length === 2 ? Math.round((rw - (296 * 2 + 19)) / 2) : 62, padTop = 212;
   let cursorY = padTop;
   qrItem(rx + padX, qrImg, 'Google');
   qrItem(rx + padX + qrSize + qrGap, igImg, 'Instagram');
